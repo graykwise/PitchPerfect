@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-CT-Xhr" userLabel="microphone">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B1K-CT-Xhr" secondAttribute="height" multiplier="1:1" id="2Ha-bh-EOg"/>
+                                    <constraint firstAttribute="height" constant="90" id="yy9-yR-8zq"/>
+                                </constraints>
+                                <state key="normal" image="microphone"/>
+                                <connections>
+                                    <action selector="recordSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m7c-o6-3gn"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-Rq-cNT">
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.020796122029423714" green="0.43626224994659424" blue="0.93955808877944946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGn-Ih-we2" userLabel="stop">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ZGn-Ih-we2" secondAttribute="height" multiplier="1:1" id="HXR-Jh-BNX"/>
+                                    <constraint firstAttribute="height" constant="40" id="Hzx-C0-GXn"/>
+                                </constraints>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5kY-7X-e2i"/>
+                                    <segue destination="gZx-Z9-BDG" kind="show" id="OBV-oE-sXS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RPd-Mp-DIZ"/>
+                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T55-Qb-LEI"/>
+                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="top" secondItem="ng6-Rq-cNT" secondAttribute="bottom" constant="10" id="UB8-9O-rpA"/>
+                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cnP-dK-1HT"/>
+                            <constraint firstItem="B1K-CT-Xhr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pLa-za-1lV"/>
+                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="top" secondItem="B1K-CT-Xhr" secondAttribute="bottom" constant="10" id="z5E-G7-mHg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="hCJ-V4-uFz">
+            <objects>
+                <viewController id="gZx-Z9-BDG" customClass="SecondViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xg1-4i-dUd"/>
+                        <viewControllerLayoutGuide type="bottom" id="s6c-fz-XNv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U6g-Dp-Tgb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing Sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-ID-sab">
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.020796122029423714" green="0.43626224994659424" blue="0.93955808877944946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78347636010362698" green="0.78347636010362698" blue="0.78347636010362698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jmf-ID-sab" firstAttribute="centerY" secondItem="U6g-Dp-Tgb" secondAttribute="centerY" id="HLq-pD-3iM"/>
+                            <constraint firstItem="jmf-ID-sab" firstAttribute="centerX" secondItem="U6g-Dp-Tgb" secondAttribute="centerX" id="iTx-rQ-i2R"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yBQ-9X-8Gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="36.431784107946029"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="microphone" width="128" height="128"/>
+        <image name="stop" width="128" height="128"/>
+    </resources>
+</document>

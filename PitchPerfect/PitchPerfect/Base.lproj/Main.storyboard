@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-CT-Xhr" userLabel="microphone">
-                                <rect key="frame" x="143" y="214" width="90" height="90"/>
+                                <rect key="frame" x="142.5" y="238.5" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B1K-CT-Xhr" secondAttribute="height" multiplier="1:1" id="2Ha-bh-EOg"/>
                                     <constraint firstAttribute="height" constant="90" id="yy9-yR-8zq"/>
@@ -34,7 +34,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGn-Ih-we2" userLabel="stop">
-                                <rect key="frame" x="163" y="344" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="358.5" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZGn-Ih-we2" secondAttribute="height" multiplier="1:1" id="HXR-Jh-BNX"/>
                                     <constraint firstAttribute="height" constant="50" id="Hzx-C0-GXn"/>
@@ -48,9 +48,9 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZGn-Ih-we2" secondAttribute="bottom" constant="273" id="4Ts-55-46h"/>
+                            <constraint firstItem="B1K-CT-Xhr" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="NCf-ee-tHm"/>
                             <constraint firstItem="ZGn-Ih-we2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T55-Qb-LEI"/>
-                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="top" secondItem="B1K-CT-Xhr" secondAttribute="bottom" constant="40" id="Y2r-sn-cNR"/>
+                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="50" id="iwW-oc-Pn2"/>
                             <constraint firstItem="B1K-CT-Xhr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pLa-za-1lV"/>
                         </constraints>
                     </view>
@@ -71,36 +71,121 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing Sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-ID-sab">
-                                <rect key="frame" x="130.5" y="323.5" width="114" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.020796122029423714" green="0.43626224994659424" blue="0.93955808877944946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNv-mg-jsl">
-                                <rect key="frame" x="139" y="438" width="96" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="PLAY"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-S7-Cku">
+                                <rect key="frame" x="39.5" y="40" width="296" height="454"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nzn-So-4By">
+                                        <rect key="frame" x="0.0" y="0.0" width="296" height="128"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCG-af-iNZ" userLabel="Slow">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <state key="normal" image="snail"/>
+                                                <connections>
+                                                    <action selector="playSlow:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="qJb-vp-vxE"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMo-1w-lfK" userLabel="Fast">
+                                                <rect key="frame" x="168" y="0.0" width="128" height="128"/>
+                                                <state key="normal" image="cheetah"/>
+                                                <connections>
+                                                    <action selector="playFast:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="cL8-hc-t8G"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="wWI-rC-s5Z">
+                                        <rect key="frame" x="0.0" y="163" width="296" height="128"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw2-vU-FRa" userLabel="High">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <state key="normal" image="squirrel"/>
+                                                <connections>
+                                                    <action selector="playHigh:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="KoN-V6-oun"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ot-MX-gAl" userLabel="Low">
+                                                <rect key="frame" x="168" y="0.0" width="128" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <state key="normal" image="vader"/>
+                                                <connections>
+                                                    <action selector="playLow:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="OEl-9M-CIT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Nu7-Lz-fG6">
+                                        <rect key="frame" x="0.0" y="326" width="296" height="128"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kHh-Vc-Fcs" userLabel="Echo">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <state key="normal" image="sound">
+                                                    <color key="titleShadowColor" red="0.0026765691582113504" green="0.42790117859840393" blue="0.9396551251411438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="playEcho:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="Tyy-u0-ven"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyh-Ue-EGS" userLabel="Normal">
+                                                <rect key="frame" x="168" y="0.0" width="128" height="128"/>
+                                                <state key="normal" image="play"/>
+                                                <connections>
+                                                    <action selector="playNormal:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="9uG-lA-xAU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <variation key="heightClass=compact-widthClass=compact" axis="vertical"/>
+                                    </stackView>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=compact" axis="horizontal"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5V7-eR-hcl">
+                                <rect key="frame" x="10" y="615" width="58" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
-                                    <action selector="playSound:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="Xxg-Le-ag9"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="aoO-b3-OhG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8m-II-Wh9" userLabel="Stop">
+                                <rect key="frame" x="150" y="584" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="U4k-Yg-xQx"/>
+                                    <constraint firstAttribute="width" secondItem="s8m-II-Wh9" secondAttribute="height" multiplier="1:1" id="hov-kh-DHq"/>
+                                </constraints>
+                                <state key="normal" image="stop"/>
+                                <connections>
+                                    <action selector="stopPlaying:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="Ipt-UA-hZb"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.78347636010362698" green="0.78347636010362698" blue="0.78347636010362698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jmf-ID-sab" firstAttribute="centerY" secondItem="U6g-Dp-Tgb" secondAttribute="centerY" id="HLq-pD-3iM"/>
-                            <constraint firstItem="jmf-ID-sab" firstAttribute="centerX" secondItem="U6g-Dp-Tgb" secondAttribute="centerX" id="iTx-rQ-i2R"/>
+                            <constraint firstItem="s6c-fz-XNv" firstAttribute="top" secondItem="5V7-eR-hcl" secondAttribute="bottom" constant="8" id="28l-vL-A2a"/>
+                            <constraint firstItem="s6c-fz-XNv" firstAttribute="top" secondItem="s8m-II-Wh9" secondAttribute="bottom" constant="8" id="7mQ-Qf-y4m"/>
+                            <constraint firstItem="5V7-eR-hcl" firstAttribute="leading" secondItem="U6g-Dp-Tgb" secondAttribute="leading" constant="10" id="Ldz-55-Ntg"/>
+                            <constraint firstItem="s8m-II-Wh9" firstAttribute="centerX" secondItem="U6g-Dp-Tgb" secondAttribute="centerX" id="hOi-jD-tHa">
+                                <variation key="heightClass=compact" constant="288"/>
+                            </constraint>
+                            <constraint firstItem="pAk-S7-Cku" firstAttribute="centerX" secondItem="U6g-Dp-Tgb" secondAttribute="centerX" id="i5N-r7-JXJ"/>
+                            <constraint firstItem="pAk-S7-Cku" firstAttribute="top" secondItem="Xg1-4i-dUd" secondAttribute="bottom" constant="20" id="qIS-jr-dvc"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yBQ-9X-8Gg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888.79999999999995" y="36.431784107946029"/>
+            <point key="canvasLocation" x="961" y="37"/>
         </scene>
     </scenes>
     <resources>
+        <image name="cheetah" width="128" height="128"/>
         <image name="microphone" width="128" height="128"/>
+        <image name="play" width="128" height="128"/>
+        <image name="snail" width="128" height="128"/>
+        <image name="sound" width="128" height="128"/>
+        <image name="squirrel" width="128" height="128"/>
         <image name="stop" width="128" height="128"/>
+        <image name="vader" width="128" height="128"/>
     </resources>
 </document>

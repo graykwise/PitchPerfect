@@ -13,21 +13,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
 
     var audioPlayer: AVAudioPlayer?
     var audioRecorder: AVAudioRecorder?
-    var recording = false
-    var stopped = true
     var stringToPass: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
         let fileMgr = FileManager.default
         
         let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
         let soundFileURL = dirPaths[0].appendingPathComponent("sound.caf")
         stringToPass = soundFileURL.absoluteString
-        print(soundFileURL)
-        print(stringToPass)
         
         let recordSettings =
             [AVEncoderAudioQualityKey: AVAudioQuality.min.rawValue,
@@ -61,17 +56,16 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDe
 
     @IBAction func recordSound(_ sender: UIButton) {
         if audioRecorder?.isRecording == false {
-            recording = true
-            stopped = false
-            print("recording")
             audioRecorder?.record()
         }
         
     }
 
     @IBAction func stopButton(_ sender: UIButton) {
+        if audioRecorder?.isRecording == true{
             audioRecorder?.stop()
             performSegue(withIdentifier: "stopRecording", sender: sender)
+        }
         
 //            do {
 //                try audioPlayer = AVAudioPlayer(contentsOf: (audioRecorder?.url)!)

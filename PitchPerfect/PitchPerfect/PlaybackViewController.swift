@@ -9,33 +9,36 @@
 import UIKit
 import AVFoundation
 
-class SecondViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+class PlaybackViewController: UIViewController, AVAudioPlayerDelegate, AVAudioRecorderDelegate {
+    
+    var soundFileString: URL!
+    var audPlay: AVAudioPlayer!
 
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        var audPlay: AVAudioPlayer!
-        let fileMgr = FileManager.default
-        let dirPaths = fileMgr.urls(for: .documentDirectory, in: .userDomainMask)
-        let soundFileURL = dirPaths[0].appendingPathComponent("sound.caf")
-        
         
         // Do any additional setup after loading the view.
         //play the sound
         
+            }
+
+    @IBAction func playSound(_ sender: UIButton) {
         do {
-            try audPlay = AVAudioPlayer(contentsOf: soundFileURL)
+            print(soundFileString)
+            try audPlay = AVAudioPlayer(contentsOf: soundFileString!)
             audPlay!.delegate = self
             audPlay!.prepareToPlay()
+            audPlay!.volume = 1.0
+            audPlay!.numberOfLoops = 5
             audPlay!.play()
-            //print("playing")
+            print("playing")
         } catch let error as NSError {
             print("audioPlayer error: \(error.localizedDescription)")
         }
-    }
 
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

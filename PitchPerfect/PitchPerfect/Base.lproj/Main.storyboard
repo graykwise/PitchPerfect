@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,6 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1K-CT-Xhr" userLabel="microphone">
+                                <rect key="frame" x="143" y="214" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="B1K-CT-Xhr" secondAttribute="height" multiplier="1:1" id="2Ha-bh-EOg"/>
                                     <constraint firstAttribute="height" constant="90" id="yy9-yR-8zq"/>
@@ -29,31 +33,25 @@
                                     <action selector="recordSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m7c-o6-3gn"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-Rq-cNT">
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <color key="textColor" red="0.020796122029423714" green="0.43626224994659424" blue="0.93955808877944946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGn-Ih-we2" userLabel="stop">
+                                <rect key="frame" x="163" y="344" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZGn-Ih-we2" secondAttribute="height" multiplier="1:1" id="HXR-Jh-BNX"/>
-                                    <constraint firstAttribute="height" constant="40" id="Hzx-C0-GXn"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hzx-C0-GXn"/>
                                 </constraints>
                                 <state key="normal" image="stop"/>
                                 <connections>
                                     <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5kY-7X-e2i"/>
-                                    <segue destination="gZx-Z9-BDG" kind="show" id="OBV-oE-sXS"/>
+                                    <segue destination="gZx-Z9-BDG" kind="show" identifier="stopRecording" id="OBV-oE-sXS"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RPd-Mp-DIZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZGn-Ih-we2" secondAttribute="bottom" constant="273" id="4Ts-55-46h"/>
                             <constraint firstItem="ZGn-Ih-we2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T55-Qb-LEI"/>
-                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="top" secondItem="ng6-Rq-cNT" secondAttribute="bottom" constant="10" id="UB8-9O-rpA"/>
-                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cnP-dK-1HT"/>
+                            <constraint firstItem="ZGn-Ih-we2" firstAttribute="top" secondItem="B1K-CT-Xhr" secondAttribute="bottom" constant="40" id="Y2r-sn-cNR"/>
                             <constraint firstItem="B1K-CT-Xhr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pLa-za-1lV"/>
-                            <constraint firstItem="ng6-Rq-cNT" firstAttribute="top" secondItem="B1K-CT-Xhr" secondAttribute="bottom" constant="10" id="z5E-G7-mHg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -61,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Playback View Controller-->
         <scene sceneID="hCJ-V4-uFz">
             <objects>
-                <viewController id="gZx-Z9-BDG" customClass="SecondViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="gZx-Z9-BDG" customClass="PlaybackViewController" customModule="PitchPerfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xg1-4i-dUd"/>
                         <viewControllerLayoutGuide type="bottom" id="s6c-fz-XNv"/>
@@ -74,10 +72,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playing Sound" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmf-ID-sab">
+                                <rect key="frame" x="130.5" y="323.5" width="114" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" red="0.020796122029423714" green="0.43626224994659424" blue="0.93955808877944946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bNv-mg-jsl">
+                                <rect key="frame" x="139" y="438" width="96" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="PLAY"/>
+                                <connections>
+                                    <action selector="playSound:" destination="gZx-Z9-BDG" eventType="touchUpInside" id="Xxg-Le-ag9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78347636010362698" green="0.78347636010362698" blue="0.78347636010362698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
